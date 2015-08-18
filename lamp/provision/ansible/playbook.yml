@@ -1,0 +1,32 @@
+---
+# This playbook deploys the whole application stack in this site.  
+
+- name: apply common configuration to all nodes
+  hosts: all
+  remote_user: vagrant
+  sudo: yes
+  vars_files:
+    - vars/all
+  roles:
+    - common
+
+- name: configure and deploy the webservers and application code
+  #hosts: webservers
+  hosts: all
+  remote_user: vagrant
+  sudo: yes
+  vars_files:
+    - vars/all
+  roles:
+    - web
+
+- name: deploy MySQL and configure the databases
+  #hosts: dbservers
+  hosts: all
+  remote_user: vagrant
+  sudo: yes
+  vars_files:
+    - vars/all
+    - vars/dbservers
+  roles:
+    - db

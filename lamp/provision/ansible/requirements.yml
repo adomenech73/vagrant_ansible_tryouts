@@ -1,0 +1,13 @@
+# from github, overriding the name and specifying a specific tag
+- src: https://github.com/geerlingguy/ansible-role-repo-epel
+  path: provision/ansible/roles/
+  version: master
+  name: epel_role
+- src: https://github.com/geerlingguy/ansible-role-mysql
+  path: provision/ansible/roles/
+  version: master
+  name: mysql_role
+- src: https://github.com/geerlingguy/ansible-role-apache
+  path: provision/ansible/roles/
+  version: master
+  name: apache_role
