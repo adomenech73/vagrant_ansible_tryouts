@@ -3,11 +3,4 @@
 env:
  RUNLEVEL: 1
 
-redhat_pkg:
-  - nginx
-
-ubuntu_pkg:
-  - python-selinux
-  - nginx
-
-  
+httpd_port: 80

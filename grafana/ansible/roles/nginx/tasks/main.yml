@@ -2,19 +2,24 @@
 
 - name: Install the selinux python module
   yum: name=libselinux-python state=present
-  when: ansible_os_family == "RedHat"
+
+- name: Change default SELinux policy
+  selinux: policy=targeted state=permissive  
 
 - name: install requirements
   yum: name={{ item }} state=installed
   with_items:
     - epel-release
-    - pcre.x86_64
-    - perl.x86_64
+    - pcre
+    - perl
 
 - name: Install the nginx packages 
   yum: name={{ item }} state=present
   with_items:
-    - nginx.x86_64
+    - nginx
+
+#- name: insert firewalld rule for httpd
+#  firewalld: port={{ httpd_port }}/tcp permanent=true state=enabled immediate=yes
 
 - name: Create the directories for site specific configurations
   file: path=/etc/nginx/{{ item }} state=directory owner=root group=root mode=0755

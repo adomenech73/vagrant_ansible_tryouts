@@ -1,9 +1,8 @@
 - name: fetch influxdb
-  get_url: https://s3.amazonaws.com/influxdb/influxdb-latest-1.x86_64.rpm
-           dest=/tmp/influxdb-latest-1.x86_64.rpm
+  get_url: url=https://s3.amazonaws.com/influxdb/influxdb-0.9.2-1.x86_64.rpm dest=/tmp/influxdb-0.9.2-1.x86_64.rpm
 
 - name: install influxdb
-  shell: rpm -i /tmp/influxdb_latest_amd64.deb
+  shell: rpm -i /tmp/influxdb-0.9.2-1.x86_64.rpm
 
 - name: setup influxdb service
   service: name=influxdb state=started enabled=yes
