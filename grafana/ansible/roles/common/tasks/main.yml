@@ -1,0 +1,9 @@
+- name: upgrade all packages
+  yum: name=* state=latest
+- name: install the 'Development tools' package group
+  yum: name="@Development tools" state=present
+- name: install common packages centos/7
+  yum: name={{ item }} state=installed
+  with_items:
+    - net-tools
+    - git

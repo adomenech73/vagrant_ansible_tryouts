@@ -1,0 +1,21 @@
+- name: download latest grafana
+  get_url: url=https://grafanarel.s3.amazonaws.com/builds/grafana-2.1.1.linux-x64.tar.gz dest=/tmp/grafana-2.1.1.linux-x64.tar.gz
+
+- name: opt directory must exists
+  file:
+    path: /opt/
+    state: directory
+
+- name: untar grafana
+  unarchive: src=/tmp/grafana-2.1.1.linux-x64.tar.gz dest=/opt copy=no
+
+- name: configure grafana
+  template: src=config.js dest=/opt/grafana-2.1.1/config.js 
+
+- name: copy nginx configuration for grafana
+  template: src=nginx-grafana.conf.j2 dest=/etc/nginx/sites-available/grafana.conf
+
+- name: enable site
+  file: src=/etc/nginx/sites-available/grafana.conf dest=/etc/nginx/sites-enabled/grafana.conf state=link
+  notify:
+    - restart nginx

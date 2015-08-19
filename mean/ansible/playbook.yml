@@ -1,5 +1,5 @@
 ---
-# This playbook deploys the whole application stack in this site.  
+# This playbook deploys the whole MEAN application stack in this site.  
 
 - name: apply common configuration to all nodes
   hosts: all
@@ -17,8 +17,9 @@
   sudo: yes
   vars_files:
     - vars/all
+    - vars/nodeserver
   roles:
-    - web
+    - nodeserver
 
 - name: deploy MySQL and configure the databases
   #hosts: dbservers
@@ -27,6 +28,6 @@
   sudo: yes
   vars_files:
     - vars/all
-    - vars/dbservers
+    - vars/mongodb
   roles:
-    - db
+    - mongodb

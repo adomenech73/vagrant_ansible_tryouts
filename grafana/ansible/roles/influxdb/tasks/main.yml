@@ -1,0 +1,19 @@
+- name: fetch influxdb
+  get_url: https://s3.amazonaws.com/influxdb/influxdb-latest-1.x86_64.rpm
+           dest=/tmp/influxdb-latest-1.x86_64.rpm
+
+- name: install influxdb
+  shell: rpm -i /tmp/influxdb_latest_amd64.deb
+
+- name: setup influxdb service
+  service: name=influxdb state=started enabled=yes
+
+- name: wait 10 seconds for the service get up
+  shell: sleep 10
+
+- name: setup databases
+  shell: "curl -X POST 'http://localhost:8086/db?u={{ influxdb.username }}&p={{ influxdb.password }}' -d '{\"name\": \"{{ item }}\"}'"
+  with_items: 
+    - "{{ influxdb.dbname }}"
+    - "{{ grafana.dbname }}"
+

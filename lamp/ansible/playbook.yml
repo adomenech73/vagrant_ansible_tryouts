@@ -1,0 +1,36 @@
+---
+# This playbook deploys the whole LAMP application stack in this site.  
+
+- name: apply common configuration to all nodes
+  hosts: all
+  remote_user: vagrant
+  sudo: yes
+  vars:
+    ntpserver: es.pool.ntp.org
+  roles:
+    - common
+
+- name: configure and deploy the webservers and application code
+  #hosts: webservers
+  hosts: all
+  remote_user: vagrant
+  sudo: yes
+  vars:
+    repository: https://github.com/bennojoy/mywebapp.git
+    httpd_port: 80
+  roles:
+    - web
+
+- name: deploy MySQL and configure the databases
+  #hosts: dbservers
+  hosts: all
+  remote_user: vagrant
+  sudo: yes
+  vars:
+    mysqlservice: mysqld
+    mysql_port: 3306
+    dbuser: foouser
+    dbname: foodb
+    upassword: abc
+  roles:
+    - db
