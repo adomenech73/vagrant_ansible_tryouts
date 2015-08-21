@@ -20,37 +20,18 @@
 	"buffers":
 	[
 		{
-			"file": "lamp/ansible/playbook.yml",
+			"file": "grafana/ansible/roles/grafana/templates/nginx-grafana.conf.j2",
 			"settings":
 			{
-				"buffer_size": 720,
+				"buffer_size": 213,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "lamp/Vagrantfile",
+			"file": "/home/albert/Projects/Nginx CNMC/default",
 			"settings":
 			{
-				"buffer_size": 4100,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": ".gitignore",
-			"settings":
-			{
-				"buffer_size": 68,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "# -*- mode: ruby -*-\n# vi: set ft=ruby :\n\nVAGRANTFILE_API_VERSION = \"2\"\n\nVagrant.configure(VAGRANTFILE_API_VERSION) do |config|\n\n  config.vm.define \"influxdb-grafana-ubuntu\" do |ubuntu|\n    ubuntu.vm.box = \"ubuntu/trusty64\"\n    ubuntu.vm.network :private_network, ip: \"192.168.33.21\"\n\n    ubuntu.vm.provision \"ansible\" do |ansible| \n      ansible.playbook = \"playbook.yml\"\n    end \n  end\n\n  config.vm.provider \"virtualbox\" do |v|\n    v.customize [\"modifyvm\", :id, \"--memory\", \"1024\"]\n  end\n\nend\n",
-			"file": "grafana/ansible/Vagrantfile",
-			"file_size": 495,
-			"file_write_time": 130844819780011821,
-			"settings":
-			{
-				"buffer_size": 495,
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		}
@@ -163,30 +144,41 @@
 		"/home/albert/Projects/vagrant_ansible_tryouts",
 		"/home/albert/Projects/vagrant_ansible_tryouts/grafana",
 		"/home/albert/Projects/vagrant_ansible_tryouts/grafana/ansible",
+		"/home/albert/Projects/vagrant_ansible_tryouts/grafana/ansible/roles",
+		"/home/albert/Projects/vagrant_ansible_tryouts/grafana/ansible/roles/grafana",
+		"/home/albert/Projects/vagrant_ansible_tryouts/grafana/ansible/roles/grafana/tasks",
+		"/home/albert/Projects/vagrant_ansible_tryouts/grafana/ansible/roles/grafana/templates",
 		"/home/albert/Projects/vagrant_ansible_tryouts/lamp",
-		"/home/albert/Projects/vagrant_ansible_tryouts/lamp/ansible",
-		"/home/albert/Projects/vagrant_ansible_tryouts/lamp/ansible/roles/common",
-		"/home/albert/Projects/vagrant_ansible_tryouts/lamp/ansible/roles/common/handlers",
-		"/home/albert/Projects/vagrant_ansible_tryouts/lamp/ansible/roles/common/tasks",
-		"/home/albert/Projects/vagrant_ansible_tryouts/lamp/ansible/roles/common/templates",
-		"/home/albert/Projects/vagrant_ansible_tryouts/mean",
-		"/home/albert/Projects/vagrant_ansible_tryouts/mean/ansible",
-		"/home/albert/Projects/vagrant_ansible_tryouts/mean/ansible/roles/common",
-		"/home/albert/Projects/vagrant_ansible_tryouts/mean/ansible/roles/mongodb",
-		"/home/albert/Projects/vagrant_ansible_tryouts/mean/ansible/roles/mongodb/handlers"
+		"/home/albert/Projects/vagrant_ansible_tryouts/lamp/ansible"
 	],
 	"file_history":
 	[
+		"/home/albert/Projects/vagrant_ansible_tryouts/lamp/Vagrantfile",
+		"/home/albert/Projects/Nginx CNMC/proxy.conf",
+		"/home/albert/Projects/vagrant_ansible_tryouts/grafana/ansible/roles/nginx/vars/main.yml",
+		"/home/albert/Projects/vagrant_ansible_tryouts/grafana/ansible/roles/influxdb/tasks/main.yml",
+		"/home/albert/Projects/vagrant_ansible_tryouts/grafana/ansible/roles/grafana/templates/nginx-grafana.conf.j2",
+		"/home/albert/Projects/vagrant_ansible_tryouts/grafana/ansible/roles/nginx/tasks/main.yml",
+		"/home/albert/Projects/vagrant_ansible_tryouts/grafana/ansible/roles/nginx/templates/nginx.conf.j2",
+		"/home/albert/Code/git/ansible-examples/lamp_simple_rhel7/roles/web/tasks/install_httpd.yml",
+		"/home/albert/Projects/vagrant_ansible_tryouts/grafana/Vagrantfile",
+		"/home/albert/Projects/vagrant_ansible_tryouts/grafana/ansible/playbook.yml",
+		"/home/albert/Projects/vagrant_ansible_tryouts/grafana/ansible/roles/python/tasks/main.yml",
+		"/home/albert/Projects/vagrant_ansible_tryouts/grafana/ansible/roles/grafana/tasks/main.yml",
+		"/home/albert/Projects/vagrant_ansible_tryouts/grafana/ansible/roles/influxdb/handlers/main.yml",
+		"/home/albert/Code/git/vagrant-influxdb-grafana/Vagrantfile",
+		"/home/albert/Projects/vagrant_ansible_tryouts/lamp/ansible/playbook.yml",
+		"/home/albert/Projects/vagrant_ansible_tryouts/lamp/ansible/roles/db/tasks/main.yml",
+		"/home/albert/Projects/vagrant_ansible_tryouts/.gitignore",
+		"/home/albert/Projects/vagrant_ansible_tryouts/grafana/ansible/roles/common/tasks/main.yml",
+		"/home/albert/Projects/vagrant_ansible_tryouts/grafana/ansible/Vagrantfile",
 		"/home/albert/Projects/vagrant_ansible_tryouts/LICENSE",
 		"/home/albert/Projects/vagrant_ansible_tryouts/mean/ansible/vars/all",
-		"/home/albert/Projects/vagrant_ansible_tryouts/.gitignore",
 		"/home/albert/Projects/vagrant_ansible_tryouts/lamp/ansible/roles/common/templates/ntp.conf.j2",
 		"/home/albert/Projects/vagrant_ansible_tryouts/lamp/ansible/vars/dbservers",
 		"/home/albert/Projects/vagrant_ansible_tryouts/lamp/ansible/vars/all",
 		"/home/albert/Projects/vagrant_ansible_tryouts/README.md",
-		"/home/albert/Projects/vagrant_ansible_tryouts/lamp/Vagrantfile",
 		"/home/albert/Projects/vagrant_ansible_tryouts/mean/ansible/playbook.yml",
-		"/home/albert/Projects/vagrant_ansible_tryouts/lamp/ansible/playbook.yml",
 		"/home/albert/Projects/vagrant_ansible_tryouts/lamp/ansible/vars/webservers",
 		"/home/albert/Projects/vagrant_ansible_tryouts/mean/ansible/vars/mongodb",
 		"/home/albert/Projects/vagrant_ansible_tryouts/mean/ansible/vars/nodeserver",
@@ -288,23 +280,7 @@
 		"/home/albert/Projects/Web/JavaScript/b4zaar/b4zaar-bknd/common/models/user.js",
 		"/home/albert/Projects/Web/JavaScript/b4zaar/b4zaar-bknd/server/views/home.ejs",
 		"/home/albert/Projects/Web/JavaScript/b4zaar/b4zaar-bknd/server/middleware.json",
-		"/home/albert/Projects/Web/JavaScript/b4zaar/b4zaar-bknd/common/models/user.json",
-		"/home/albert/Projects/Web/JavaScript/b4zaar/b4zaar-bknd/server/views/response.ejs",
-		"/home/albert/Projects/Web/JavaScript/b4zaar/b4zaar-bknd/server/views/verified.ejs",
-		"/home/albert/Projects/Web/JavaScript/b4zaar/b4zaar-bknd/server/views/verify.ejs",
-		"/home/albert/Projects/Web/JavaScript/b4zaar/b4zaar-bknd/server/views/login.ejs",
-		"/home/albert/Projects/Web/JavaScript/b4zaar/b4zaar-bknd/server/views/password-reset.ejs",
-		"/home/albert/Projects/Web/JavaScript/b4zaar/terminal.glue",
-		"/home/albert/Projects/Web/JavaScript/b4zaar/OLD/b4zaar-strng/server/datasources.json",
-		"/home/albert/Projects/Web/JavaScript/b4zaar/b4zaar-app/bower.json",
-		"/home/albert/Projects/Web/JavaScript/b4zaar/OLD/b4zaar-strng/package.json",
-		"/home/albert/Projects/Web/JavaScript/b4zaar/b4zaar-bknd/README.md",
-		"/home/albert/.conkyrc",
-		"/home/albert/.config/sublime-text-3/Packages/Arduino-like IDE/stino.global_settings",
-		"/media/albert/Elements/COPIA_ALBERT_2015/Projectes/Arduino/sketch_jun07a/sketch_jun07a.ino",
-		"/home/albert/Projects/Web/Python/AgendaBCN/package/App/node/server.js",
-		"/media/albert/Elements/COPIA_ALBERT_2015/UOC/PFC/PAC2/dia.arquitectura.pml",
-		"/home/albert/.config/sublime-text-3/Packages/User/Glue.sublime-settings"
+		"/home/albert/Projects/Web/JavaScript/b4zaar/b4zaar-bknd/common/models/user.json"
 	],
 	"find":
 	{
@@ -358,92 +334,30 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "lamp/ansible/playbook.yml",
-					"semi_transient": false,
+					"file": "grafana/ansible/roles/grafana/templates/nginx-grafana.conf.j2",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 720,
+						"buffer_size": 213,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								438,
-								438
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"apply_syntax_touched": true,
-							"syntax": "Packages/YAML/YAML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "lamp/Vagrantfile",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4100,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4079,
-								4079
-							]
-						],
-						"settings":
-						{
-							"apply_syntax_touched": true,
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1053.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": ".gitignore",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 68,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								68,
-								68
-							]
-						],
-						"settings":
-						{
-							"apply_syntax_touched": true,
-							"syntax": "Packages/INI/INI.tmLanguage"
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -453,28 +367,26 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "grafana/ansible/Vagrantfile",
+					"buffer": 1,
+					"file": "/home/albert/Projects/Nginx CNMC/default",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 495,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								495,
-								495
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"apply_syntax_touched": true,
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
