@@ -1,7 +1,7 @@
 ---
 # This playbook deploys the whole LAMP application stack in this site.  
 
-- name: Install WordPress, MySQL, Nginx, and PHP-FPM
+- name: Install WordPress, MySQL, Apache, and PHP-FPM
   hosts: wordpress-centos
   remote_user: vagrant
   # remote_user: user
@@ -9,8 +9,8 @@
 
   vars:
     ntpserver: es.pool.ntp.org
-    wp_version: 4.2.4
-    wp_sha256sum: 42ca594afc709cbef8528a6096f5a1efe96dcf3164e7ce321e87d57ae015cc82
+    wp_version: 4.3
+    wp_sha256sum: 3b0db3abe8504f15a33cf64188a493ec0de01eaa8d20e37c3d6a1d9fa0a40fb4
     wp_db_name: wordpress
     wp_db_user: wordpress
     wp_db_password: secret
