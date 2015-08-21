@@ -13,5 +13,8 @@
   service: name=ntpd state=started enabled=yes
   tags: ntp
 
+- name: Install epel repository
+  yum: name=epel-release state=present
+
 - name: Install libselinux-python
   yum: name=libselinux-python state=present
