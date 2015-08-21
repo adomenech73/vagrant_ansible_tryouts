@@ -1,0 +1,1 @@
+{"virtualbox":{"/vagrant_share":{"guestpath":"/vagrant_share","hostpath":"/home/albert/Projects/vagrant_ansible_tryouts/wordpress/share","disabled":false},"/vagrant":{"guestpath":"/vagrant","hostpath":"/home/albert/Projects/vagrant_ansible_tryouts/wordpress","disabled":false}}}

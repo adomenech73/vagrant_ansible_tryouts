@@ -8,6 +8,7 @@
   sudo: yes
 
   vars:
+    ntpserver: es.pool.ntp.org
     wp_version: 4.2.4
     wp_sha256sum: 42ca594afc709cbef8528a6096f5a1efe96dcf3164e7ce321e87d57ae015cc82
     wp_db_name: wordpress
@@ -17,6 +18,13 @@
     server_hostname: www.example1.com
     auto_up_disable: false
     core_update_level: true
+    repository: https://github.com/bennojoy/mywebapp.git
+    httpd_port: 80
+    mysqlservice: mysqld
+    mysql_port: 3306
+    dbuser: foouser
+    dbname: foodb
+    upassword: abc
   roles:
     - common
     - db
