@@ -1,0 +1,14 @@
+---
+# These tasks install http and the php modules.
+- name: Install httpd
+  yum: name=httpd state=present
+
+- name: http service state
+  service: name=httpd state=started enabled=yes
+
+#- name: Configure SELinux to allow httpd to connect to remote database
+#  seboolean: name=httpd_can_network_connect_db state=true persistent=yes
+
+- name: insert firewalld rule for httpd
+  firewalld: port=80/tcp permanent=true state=enabled immediate=yes
+  firewalld: port=443/tcp permanent=true state=enabled immediate=yes

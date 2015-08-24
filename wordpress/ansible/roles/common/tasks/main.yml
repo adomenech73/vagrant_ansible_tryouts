@@ -1,5 +1,19 @@
 ---
 # This playbook contains common plays that will be run on all nodes.
+- name: bootstrap epel-release install
+  copy: src=../templates/ansible-bootstrap-epel.repo
+        dest=/etc/yum.repos.d/
+        owner=root group=root mode=0644
+
+- name: Install epel repository
+  yum: name=epel-release state=present
+
+- name: epel repository enable
+  ini_file: dest=/etc/yum.repos.d/epel.repo
+            section=epel
+            option=enabled
+            value=1
+
 - name: Install ntp 
   yum: name=ntp state=present
   tags: ntp
@@ -13,8 +27,8 @@
   service: name=ntpd state=started enabled=yes
   tags: ntp
 
-- name: Install epel repository
-  yum: name=epel-release state=present
-
 - name: Install libselinux-python
   yum: name=libselinux-python state=present
+
+- name: Install git
+  yum: name=git state=present

@@ -13,21 +13,21 @@
     wp_sha256sum: 3b0db3abe8504f15a33cf64188a493ec0de01eaa8d20e37c3d6a1d9fa0a40fb4
     wp_db_name: wordpress
     wp_db_user: wordpress
-    wp_db_password: secret
-    mysql_port: 3306
+    wp_db_password: P4$$w0rd
+    #mysql_port: 3306
     server_hostname: www.example1.com
     auto_up_disable: false
     core_update_level: true
-    repository: https://github.com/bennojoy/mywebapp.git
+    #repository: https://github.com/bennojoy/mywebapp.git
     httpd_port: 80
     mysqlservice: mysqld
     mysql_port: 3306
-    dbuser: foouser
-    dbname: foodb
-    upassword: abc
+    #dbuser: foouser
+    #dbname: foodb
+    #upassword: abc
   roles:
     - common
-    - db
-    - web
-    - php-fpm
+    - mariadb
+    - apache
+    - php-addons
     - wordpress

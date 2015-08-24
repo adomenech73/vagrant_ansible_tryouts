@@ -1,13 +1,16 @@
 ---
 # This playbook will install MariaDB and create db user and give permissions.
+#- name: Install libsemanage-python
+#  yum: libsemanage-python state=present
 
-- name: Install MariaDB package
-  yum: name={{ item }} state=installed
-  with_items:
-   - mariadb-server
-   - MySQL-python
-   - libselinux-python
-   - libsemanage-python
+- name: Install mariadb-server
+  yum: name=mariadb-server state=present
+
+- name: Install mariadb (client)
+  yum: name=mariadb state=present
+
+- name: Install mysql-python
+  yum: name=MySQL-python state=present
 
 #- name: Configure SELinux to start mysql on any port
 #  seboolean: name=mysql_connect_any state=true persistent=yes
@@ -27,10 +30,17 @@
   service: name=mariadb state=started enabled=yes
 
 - name: insert firewalld rule
-  firewalld: port={{ mysql_port }}/tcp permanent=true state=enabled immediate=yes
+  firewalld: port=3306/tcp permanent=true state=enabled immediate=yes
 
 - name: Create Application Database
-  mysql_db: name={{ dbname }} state=present
+  mysql_db: name=wordpress state=present
 
 - name: Create Application DB User
-  mysql_user: name={{ dbuser }} password={{ upassword }} priv=*.*:ALL host='%' state=present
+  mysql_user:
+    user=wordpress
+    password=P4$$w0rd
+    state=present
+    priv=*.*:ALL host='%'
+  with_items:
+    - 'wordpress.*:ALL'
+#host='localhost'
